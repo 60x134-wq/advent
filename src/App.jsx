@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const startDate = new Date("2025-12-01");
+const startDate = new Date("2025-11-25");
 const today = new Date();
 
 // Calendar day configuration (3 demo images; expand to 24 by adding objects)
