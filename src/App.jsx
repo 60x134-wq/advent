@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 // Define the calendar date range and images (24 days)
-const startDate = new Date("2025-12-01");
-const endDate = new Date("2025-12-24");
+const startDate = new Date("2025-11-24");
+const endDate = new Date("2025-12-01");
 const today = new Date();
 
 // Generate day configs dynamically (modify for your link requirements)
