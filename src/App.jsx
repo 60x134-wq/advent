@@ -1,7 +1,7 @@
 // src/App.jsx
 import React, { useState } from "react";
 const config = {
-  start: "2025-11-26",
+  start: "2025-11-23",
   end: "2025-11-30",
   cards: [
     // Add items below for each day; images should be hosted (or use a public CDN)
