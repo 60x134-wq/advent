@@ -1,75 +1,62 @@
-/* Desktop/PC: 3 columns grid */
-.calendar-root {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  width: 95vw;
-  max-width: 1160px;
-  margin: 0 auto;
-}
-
-/* "Shorts" style for mobile/handheld devices */
 @media (max-width: 850px) {
   .calendar-root {
     display: flex;
     flex-direction: column;
-    gap: 44px;
+    gap: 0; /* remove gap between snap points */
     width: 100vw;
     max-width: 600px;
     margin: 0 auto;
-    padding-bottom: 56px;
     scroll-snap-type: y mandatory;
     overflow-y: auto;
     height: 100vh;
   }
   .shorts-tile {
-    position: sticky;
-    top: 0;
+    scroll-snap-align: start;
+    min-height: 100vh;
+    height: 100vh;
     width: 100vw;
-    min-height: 90vh;
-    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    scroll-snap-align: start;
+    justify-content: center;
     background: #fff;
-    border-radius: 24px;
-    box-shadow: 0 8px 32px #0002;
-    margin: 0 auto 16px auto;
-    padding: 30px 0 22px 0;
+    border-radius: 0; /* full bleed */
+    box-shadow: 0 8px 32px #0001;
+    margin: 0;
+    padding: 0;
+    position: relative;
     z-index: 1;
     will-change: transform;
     transition: box-shadow 0.2s;
   }
   .shorts-tile img {
     max-width: 96vw;
-    max-height: 72vh;
+    max-height: 85vh;
+    margin: 0 auto;
+    display: block;
+    border-radius: 18px;
   }
-}
-
-.tile-header {
-  font-weight: 600;
-  color: #9c5cdd;
-  font-size: 15px;
-  text-align: center;
-  padding-bottom: 10px;
-  letter-spacing: 0.01em;
-}
-
-.tile-footer {
-  margin-top: 12px;
-  font-size: 13px;
-  color: #8a8fab;
-  opacity: 0.93;
-  text-align: center;
-  min-height: 24px;
-}
-
-.tile {
-  transition: box-shadow 0.18s, transform 0.18s;
-}
-.tile:active,
-.tile:hover {
-  box-shadow: 0 12px 36px #9b64e8be;
-  transform: scale(1.02);
+  .tile-header, .tile-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .tile-header {
+    top: 18px;
+    color: #9c5cdd;
+    font-weight: 900;
+    font-size: 16px;
+    text-shadow: 0 2px 8px #fff7;
+  }
+  .tile-footer {
+    bottom: 28px;
+    color: #7a6eff;
+    font-size: 15px;
+    font-weight: 600;
+    opacity: 0.97;
+    text-shadow: 0 1px 8px #fff9;
+  }
 }
