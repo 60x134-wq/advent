@@ -30,16 +30,13 @@ function isUnlocked(dayDate) {
 function CalendarTile({ dayObj }) {
   const [revealed, setRevealed] = useState(false);
   const unlocked = isUnlocked(dayObj.date);
-
-  // Create a string for the date, e.g., "2025-12-02"
   const dateString = dayObj.date.toLocaleDateString(undefined, { year: 'numeric', month: '2-digit', day: '2-digit' });
 
-  return (
-    <div className="tile shorts-tile">
-      <div className="tile-header">
-        {dateString}
-      </div>
-      {!unlocked || !revealed ? (
+  // Show placeholder if locked, or unlocked but not revealed
+  if (!unlocked || !revealed) {
+    return (
+      <div className="tile shorts-tile">
+        <div className="tile-header">{dateString}</div>
         <img
           src={dayObj.placeholder}
           alt={`Locked for ${dateString}`}
@@ -59,28 +56,21 @@ function CalendarTile({ dayObj }) {
           }}
           onClick={() => unlocked && setRevealed(true)}
         />
-      ) : (
-        dayObj.link ? (
-          <a href={dayObj.link} target="_blank" rel="noopener noreferrer">
-            <img
-              src={dayObj.img}
-              alt={`Secret for ${dateString}`}
-              width="100%"
-              height="auto"
-              style={{
-                aspectRatio: "2/3",
-                width: "100%",
-                maxWidth: "512px",
-                maxHeight: "768px",
-                objectFit: "cover",
-                borderRadius: 20,
-                boxShadow: "0 8px 32px #0003",
-                transform: "scale(1.03)",
-                userSelect: "none"
-              }}
-            />
-          </a>
-        ) : (
+        <div className="tile-footer">
+          {unlocked
+            ? "Click to reveal!"
+            : `Unlocks ${dateString}`}
+        </div>
+      </div>
+    );
+  }
+
+  // Otherwise, revealed: show real image
+  return (
+    <div className="tile shorts-tile">
+      <div className="tile-header">{dateString}</div>
+      {dayObj.link ? (
+        <a href={dayObj.link} target="_blank" rel="noopener noreferrer">
           <img
             src={dayObj.img}
             alt={`Secret for ${dateString}`}
@@ -98,16 +88,33 @@ function CalendarTile({ dayObj }) {
               userSelect: "none"
             }}
           />
-        )
+        </a>
+      ) : (
+        <img
+          src={dayObj.img}
+          alt={`Secret for ${dateString}`}
+          width="100%"
+          height="auto"
+          style={{
+            aspectRatio: "2/3",
+            width: "100%",
+            maxWidth: "512px",
+            maxHeight: "768px",
+            objectFit: "cover",
+            borderRadius: 20,
+            boxShadow: "0 8px 32px #0003",
+            transform: "scale(1.03)",
+            userSelect: "none"
+          }}
+        />
       )}
       <div className="tile-footer">
-        {unlocked
-          ? (revealed ? (dayObj.link ? "🎁 Click again for more!" : "🎉 Revealed!") : "Click to reveal!")
-          : `Unlocks ${dateString}`}
+        {dayObj.link ? "🎁 Click picture for more!" : "🎉 Revealed!"}
       </div>
     </div>
   );
 }
+
 
 export default function App() {
   return (
