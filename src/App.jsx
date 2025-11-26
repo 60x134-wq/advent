@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 
-// Define the calendar date range and images (24 days)
-const startDate = new Date("2025-11-24");
-const endDate = new Date("2025-12-01");
+const startDate = new Date("2025-12-01");
 const today = new Date();
 
-// Generate day configs dynamically (modify for your link requirements)
+// Calendar day configuration (3 demo images; expand to 24 by adding objects)
 const days = Array.from({ length: 24 }).map((_, i) => ({
   day: i + 1,
-  img: `/images/${i + 1}.jpg`, // hidden image
+  img: `/images/${i + 1}.jpg`, // 512x768 portrait images
   placeholder: `/images/0.jpg`,
-  link: null, // Or e.g. `https://example.com/${i+1}`
+  link: null, // Optional: include external links
   date: new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + i),
 }));
 
-// Helper: whether the current day is unlocked
 function isUnlocked(dayDate) {
-  // Only unlock images on or after the day's date
   return today >= dayDate;
 }
 
@@ -32,48 +28,83 @@ function CalendarTile({ dayObj }) {
         flexDirection: "column",
         alignItems: "center",
         background: "#fff",
-        borderRadius: 14,
-        margin: 8,
-        padding: 12,
-        boxShadow: "0 2px 12px #0002",
+        borderRadius: 20,
+        margin: "6px",
+        padding: "14px 10px",
+        boxShadow: "0 6px 28px #0002",
+        transition: "box-shadow 0.2s, transform 0.2s",
+        position: "relative",
+        overflow: "hidden",
+        cursor: unlocked ? "pointer" : "default",
+        minWidth: "0", // Prevents grid overflow
       }}
     >
-      <div style={{ fontWeight: "bold", marginBottom: 6 }}>Day {dayObj.day}</div>
-      {/* Show placeholder if not unlocked or not revealed yet */}
+      <div
+        style={{
+          position: "absolute",
+          top: 8,
+          right: 16,
+          fontWeight: 500,
+          color: "#b1b1b1",
+          fontSize: 14,
+          textShadow: "0 2px 8px #fff7"
+        }}
+      >Day {dayObj.day}</div>
       {!unlocked || !revealed ? (
         <img
           src={dayObj.placeholder}
           alt={`Locked for Day ${dayObj.day}`}
+          width="100%"
+          height="auto"
           style={{
+            aspectRatio: "2/3",
             width: "100%",
-            height: "180px",
+            height: "auto",
+            maxWidth: "512px",
+            maxHeight: "768px",
             objectFit: "cover",
-            cursor: unlocked ? "pointer" : "not-allowed",
-            opacity: unlocked ? 0.8 : 0.5,
-            borderRadius: 8,
+            borderRadius: 14,
+            boxShadow: unlocked ? "0 2px 12px #0001" : "0 0px 0px #0000",
+            filter: unlocked ? "blur(0px)" : "blur(2px) grayscale(60%)",
+            transition: "filter 0.2s",
+            opacity: unlocked ? 0.92 : 0.65,
           }}
-          onClick={() => {
-            if (unlocked) setRevealed(true);
-          }}
+          onClick={() => unlocked && setRevealed(true)}
         />
       ) : (
         <a href={dayObj.link ?? "#"} target="_blank" rel="noopener noreferrer">
           <img
             src={dayObj.img}
             alt={`Secret for Day ${dayObj.day}`}
+            width="100%"
+            height="auto"
             style={{
+              aspectRatio: "2/3",
               width: "100%",
-              height: "180px",
+              height: "auto",
+              maxWidth: "512px",
+              maxHeight: "768px",
               objectFit: "cover",
-              borderRadius: 8,
-              cursor: dayObj.link ? "pointer" : "default",
-              boxShadow: "0 2px 10px #0001",
+              borderRadius: 14,
+              boxShadow: "0 8px 32px #0003",
+              transform: "scale(1.04)",
+              transition: "box-shadow 0.2s, transform 0.2s",
             }}
           />
         </a>
       )}
-      <div style={{ fontSize: 12, marginTop: 6, color: "#555" }}>
-        {unlocked ? (revealed ? "🎁 Revealed!" : "Click to reveal") : `Opens ${dayObj.date.toLocaleDateString()}`}
+      <div style={{
+        marginTop: 10,
+        fontSize: 13,
+        opacity: 0.80,
+        color: unlocked ? "#9c5cdd" : "#8a8a8a",
+        letterSpacing: "1px",
+        fontWeight: 300,
+        textAlign: "center"
+      }}>
+        {unlocked
+          ? (revealed ? "🎉 Tap image again for surprise!" : "Click to reveal the gift!")
+          : `Unlocks ${dayObj.date.toLocaleDateString()}`}
       </div>
     </div>
   );
@@ -83,21 +114,30 @@ export default function App() {
   return (
     <div style={{
       minHeight: "100vh",
-      background: "#f8f8f8",
+      background: "linear-gradient(120deg, #f3e7ff 0%, #eef5ff 100%)",
+      padding: "24px 0",
       display: "flex",
       flexDirection: "column",
-      alignItems: "center",
-      padding: "32px 0"
+      alignItems: "center"
     }}>
-      <h2 style={{ marginBottom: 18, fontWeight: 900 }}>Advent Calendar (2025)</h2>
+      <h2 style={{
+        marginBottom: 24,
+        fontWeight: 900,
+        fontSize: 32,
+        letterSpacing: "0.04em",
+        color: "#7c3aed",
+        textShadow: "0 2px 20px #fff7"
+      }}>
+        🎄 Advent Calendar Shorts
+      </h2>
       <div
         className="calendar-grid"
         style={{
+          width: "95vw",
+          maxWidth: 1160,
           display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: 16,
-          width: "90vw",
-          maxWidth: 900,
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: "18px",
         }}
       >
         {days.map(dayObj => (
