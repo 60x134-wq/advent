@@ -4,9 +4,8 @@ body {
   min-height: 100vh;
   width: 100vw;
   background-image: url('/images/bcg.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background-repeat: repeat;
+
 }
 
 /* ========== Desktop/PC: 3-column grid ========== */
