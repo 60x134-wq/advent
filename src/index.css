@@ -114,7 +114,7 @@ body {
   width: 100vw;
   /* Repeatable background pattern with gradient overlay */
   background: 
-    url('/images/bg.png') repeat,
+    url('/images/bcg.png') repeat,
     linear-gradient(120deg, #fff4ec 0%, #e9fffd 100%);
   background-blend-mode: lighten;
   background-size: auto, cover;
