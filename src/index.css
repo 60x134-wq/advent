@@ -112,9 +112,10 @@ body {
 .bg-christmas {
   min-height: 100vh;
   width: 100vw;
-  /* Subtle snowy/holiday gradient + optional image pattern: */
+  /* Repeatable background pattern with gradient overlay */
   background: 
-    url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat,
+    url('/images/bg.png') repeat,
     linear-gradient(120deg, #fff4ec 0%, #e9fffd 100%);
   background-blend-mode: lighten;
+  background-size: auto, cover;
 }

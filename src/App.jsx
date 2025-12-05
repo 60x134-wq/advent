@@ -6,9 +6,11 @@ const today = new Date();
 
 // Example: individual links for each day
 const links = [
-  "https://en.wikipedia.org/wiki/Christmas",
-  "https://www.noradsanta.org/",
-  "https://www.canva.com/cards/templates/christmas/",
+  "https://pl.pornhub.com/view_video.php?viewkey=ph5f7a349b1a09f&pkey=158309581", //jerk comp
+  "https://pl.pornhub.com/view_video.php?viewkey=67ae7c20e2911&pkey=332619971", //car
+  "https://pl.pornhub.com/view_video.php?viewkey=ph632c7f5957b29", //cuckold
+  "https://www.xvideos.com/video.cbkvph805c/playboy_-_hot_foam_orgy_party", //foam party
+  "https://pl.pornhub.com/view_video.php?viewkey=67e746a3653d9", //double blowjob
   // fill out or leave as null for days without a link
 ];
 const days = Array.from({ length: 24 }).map((_, i) => {
@@ -129,7 +131,7 @@ export default function App() {
           textAlign: "center",
           textShadow: "0 2px 20px #fff7"
         }}
-      >🎄 Advent Calendar 2025</h2>
+      >🎄 Horny Santa Calendar 2025</h2>
       <div className="calendar-root">
         {days.map(dayObj => (
           <CalendarTile key={dayObj.day} dayObj={dayObj} />
