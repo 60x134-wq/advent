@@ -47,11 +47,12 @@ body {
     transition: box-shadow 0.2s;
   }
   .shorts-tile img {
-    max-width: 96vw;
-    max-height: 85vh;
-    margin: 0 auto;
+    max-width: 92vw;
+    max-height: 72vh;
+    margin: 10vh auto 6vh auto;
     display: block;
     border-radius: 18px;
+    object-fit: contain;
   }
   .tile-header, .tile-footer {
     position: absolute;
