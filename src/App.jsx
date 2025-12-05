@@ -61,6 +61,8 @@ function CalendarTile({ dayObj }) {
               style={{
                 aspectRatio: "2/3",
                 width: "100%",
+                maxWidth: "512px",
+                maxHeight: "768px",
                 objectFit: "cover",
                 borderRadius: 20,
                 boxShadow: "0 8px 32px #0003",
@@ -78,6 +80,8 @@ function CalendarTile({ dayObj }) {
             style={{
               aspectRatio: "2/3",
               width: "100%",
+              maxWidth: "512px",
+              maxHeight: "768px",
               objectFit: "cover",
               borderRadius: 20,
               boxShadow: "0 8px 32px #0003",
@@ -107,6 +111,8 @@ function CalendarTile({ dayObj }) {
             style={{
               aspectRatio: "2/3",
               width: "100%",
+              maxWidth: "512px",
+              maxHeight: "768px",
               objectFit: "cover",
               borderRadius: 20,
               filter: "blur(6px)",
@@ -134,6 +140,8 @@ function CalendarTile({ dayObj }) {
               style={{
                 aspectRatio: "2/3",
                 width: "100%",
+                maxWidth: "512px",
+                maxHeight: "768px",
                 objectFit: "cover",
                 borderRadius: 20,
                 boxShadow: "0 8px 32px #0003",
@@ -151,6 +159,8 @@ function CalendarTile({ dayObj }) {
             style={{
               aspectRatio: "2/3",
               width: "100%",
+              maxWidth: "512px",
+              maxHeight: "768px",
               objectFit: "cover",
               borderRadius: 20,
               boxShadow: "0 8px 32px #0003",
@@ -178,6 +188,8 @@ function CalendarTile({ dayObj }) {
         style={{
           aspectRatio: "2/3",
           width: "100%",
+          maxWidth: "512px",
+          maxHeight: "768px",
           objectFit: "cover",
           borderRadius: 20,
           filter: "blur(4px) grayscale(60%)",
