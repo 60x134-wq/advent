@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
 // CONFIGURATION
-const startDate = new Date("2025-11-22");
-const today = new Date();
+const startDate = new Date("2025-12-01");
+const today = new Date("2025-12-24");
+//const today = new Date();
 
 // Example: individual links for each day
 const links = [
