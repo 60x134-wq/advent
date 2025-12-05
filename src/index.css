@@ -110,7 +110,8 @@ body {
   background: #fff;
   border-radius: 20px;
   margin: 6px;
-  padding: 18px 8px 22px 8px;
+  /* padding: 18px 8px 22px 8px; */
+  padding: 0;
   box-shadow: 0 6px 28px #0002;
   transition: box-shadow 0.18s, transform 0.18s;
   position: relative;
