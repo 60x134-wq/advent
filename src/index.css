@@ -79,9 +79,9 @@ body {
 }
 
 .tile-header {
-  font-weight: 600;
+  font-weight: 800;
   color: #9c5cdd;
-  font-size: 15px;
+  font-size: 20px;
   text-align: center;
   padding-bottom: 10px;
   letter-spacing: 0.01em;
