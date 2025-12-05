@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // CONFIGURATION
 const startDate = new Date("2025-12-01");
@@ -32,6 +32,7 @@ function isUnlocked(dayDate) {
 }
 
 function CalendarTile({ dayObj }) {
+  const [revealed, setRevealed] = useState(false);
   // Normalize dates to remove time portion for accurate day comparison
   const dayDate = new Date(dayObj.date.getFullYear(), dayObj.date.getMonth(), dayObj.date.getDate());
   const todayDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
@@ -93,30 +94,81 @@ function CalendarTile({ dayObj }) {
     );
   }
 
-  // Today: hide the image (show placeholder blurred/hidden)
+  // Today: allow clicking to reveal the real image
   if (status === 'today') {
+    if (!revealed) {
+      return (
+        <div className="tile shorts-tile">
+          <div className="tile-header">{dateString}</div>
+          <img
+            src={dayObj.placeholder}
+            alt={`Hidden for ${dateString}`}
+            width="100%"
+            height="auto"
+            style={{
+              aspectRatio: "2/3",
+              width: "100%",
+              maxWidth: "512px",
+              maxHeight: "768px",
+              objectFit: "cover",
+              borderRadius: 20,
+              filter: "blur(6px)",
+              opacity: 0.6,
+              cursor: "pointer",
+              userSelect: "none"
+            }}
+            onClick={() => setRevealed(true)}
+          />
+          <div className="tile-footer">Click to reveal!</div>
+        </div>
+      );
+    }
+    // Revealed today image
     return (
       <div className="tile shorts-tile">
         <div className="tile-header">{dateString}</div>
-        <img
-          src={dayObj.placeholder}
-          alt={`Hidden for ${dateString}`}
-          width="100%"
-          height="auto"
-          style={{
-            aspectRatio: "2/3",
-            width: "100%",
-            maxWidth: "512px",
-            maxHeight: "768px",
-            objectFit: "cover",
-            borderRadius: 20,
-            filter: "blur(6px)",
-            opacity: 0.6,
-            cursor: "not-allowed",
-            userSelect: "none"
-          }}
-        />
-        <div className="tile-footer">Unlocks today</div>
+        {dayObj.link ? (
+          <a href={dayObj.link} target="_blank" rel="noopener noreferrer">
+            <img
+              src={dayObj.img}
+              alt={`Secret for ${dateString}`}
+              width="100%"
+              height="auto"
+              style={{
+                aspectRatio: "2/3",
+                width: "100%",
+                maxWidth: "512px",
+                maxHeight: "768px",
+                objectFit: "cover",
+                borderRadius: 20,
+                boxShadow: "0 8px 32px #0003",
+                transform: "scale(1.03)",
+                userSelect: "none"
+              }}
+            />
+          </a>
+        ) : (
+          <img
+            src={dayObj.img}
+            alt={`Secret for ${dateString}`}
+            width="100%"
+            height="auto"
+            style={{
+              aspectRatio: "2/3",
+              width: "100%",
+              maxWidth: "512px",
+              maxHeight: "768px",
+              objectFit: "cover",
+              borderRadius: 20,
+              boxShadow: "0 8px 32px #0003",
+              transform: "scale(1.03)",
+              userSelect: "none"
+            }}
+          />
+        )}
+        <div className="tile-footer">
+          {dayObj.link ? "🎁 Click picture for more!" : "🎉 Revealed!"}
+        </div>
       </div>
     );
   }
