@@ -1,7 +1,7 @@
 import React from "react";
 
 // CONFIGURATION
-const startDate = new Date("2025-11-25");
+const startDate = new Date("2025-11-20");
 const today = new Date();
 
 // Example: individual links for each day
