@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // CONFIGURATION
-const startDate = new Date("2025-12-01");
+const startDate = new Date("2025-12-06");
 //const today = new Date("2025-12-24");
 const today = new Date();
 
