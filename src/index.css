@@ -49,7 +49,8 @@ body {
   .shorts-tile img {
     max-width: 92vw;
     max-height: 72vh;
-    margin: 10vh auto 6vh auto;
+    /* smaller top margin so image moves up under the header */
+    margin: 4vh auto 3vh auto;
     display: block;
     border-radius: 18px;
     object-fit: contain;
@@ -63,7 +64,7 @@ body {
     pointer-events: none;
   }
   .tile-header {
-    top: 18px;
+    top: 10px;
     color: #9c5cdd;
     font-weight: 900;
     font-size: 17px;
