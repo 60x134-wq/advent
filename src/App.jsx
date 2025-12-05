@@ -210,7 +210,7 @@ export default function App() {
           textAlign: "center",
           textShadow: "0 2px 20px #fff7"
         }}
-      >🎄 Horny Santa Calendar 2025</h2>
+      >🎄 Zboczony Miki 2025</h2>
       <div className="calendar-root">
         {days.map(dayObj => (
           <CalendarTile key={dayObj.day} dayObj={dayObj} />
