@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 
 // CONFIGURATION
+// Set your start date here (calendar will always have 24 days)
 const startDate = new Date("2025-12-06");
+const endDate = new Date("2025-12-24");
 //const today = new Date("2025-12-24");
 const today = new Date();
+
+// Calculate number of days between startDate and endDate (inclusive)
+const numDays = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
 
 // Example: individual links for each day
 const links = [
@@ -18,7 +23,7 @@ const links = [
   
   // fill out or leave as null for days without a link
 ];
-const days = Array.from({ length: 24 }).map((_, i) => {
+const days = Array.from({ length: numDays }).map((_, i) => {
   const date = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate() + i);
   return {
     day: i + 1,
