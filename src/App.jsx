@@ -20,6 +20,9 @@ const links = [
   "https://pl.pornhub.com/view_video.php?viewkey=67bf7a8aee545", //pizza delivery
   "https://pl.pornhub.com/view_video.php?viewkey=6504e6d0c344f", //island
   "https://pl.pornhub.com/view_video.php?viewkey=6786e5cabafcf", // gb
+  "https://pornve.com/video/522710/marlo-lovely-lo-samantha-sinz-james-angel-strip-club-makes-his-gf-horny/", //strip club
+  "https://pl.pornhub.com/view_video.php?viewkey=67eade5bddddf", //swingers club
+  "https://www.pornhits.com/video/501007/horny-sex-clip-deep-throat-crazy-unique-with-isabella-jules/", //shady spa
   
   // fill out or leave as null for days without a link
 ];
@@ -222,7 +225,7 @@ export default function App() {
           textAlign: "center",
           textShadow: "0 2px 20px #fff7"
         }}
-      >🎄 Horny Santa Calendar 2025</h2>
+      >🎄 Zboczony Miki 2025</h2>
       <div className="calendar-root">
         {days.map(dayObj => (
           <CalendarTile key={dayObj.day} dayObj={dayObj} />
