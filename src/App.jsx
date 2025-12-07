@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 // CONFIGURATION
 // Set your start date here (calendar will always have 24 days)
-const startDate = new Date("2025-12-01");
+const startDate = new Date("2025-11-20");
 const endDate = new Date("2025-12-24");
 //const today = new Date("2025-12-24");
 const today = new Date();
