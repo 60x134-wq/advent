@@ -23,6 +23,15 @@ const links = [
   "https://pornve.com/video/522710/marlo-lovely-lo-samantha-sinz-james-angel-strip-club-makes-his-gf-horny/", //strip club
   "https://pl.pornhub.com/view_video.php?viewkey=67eade5bddddf", //swingers club
   "https://www.pornhits.com/video/501007/horny-sex-clip-deep-throat-crazy-unique-with-isabella-jules/", //shady spa
+  "https://pl.pornhub.com/view_video.php?viewkey=64b9af54cf84e", //female massage
+  "https://pl.pornhub.com/view_video.php?viewkey=ph5f22aafd2e9ca&pkey=174464242", // 13 baloon
+  "https://www.uiporn.com/videos/nice-dillion-harper-is-pegging-boyz-kurt-lockwood-charli-piper-17817/", // 14 pegging
+  "https://pl.pornhub.com/view_video.php?viewkey=ph623b20b744316&pkey=158309581", // 15 flashlight
+  "https://pl.pornhub.com/view_video.php?viewkey=ph5bd6f5d9bcbf8&pkey=166757061", // 16 car man cums
+  "https://pl.pornhub.com/view_video.php?viewkey=ph57c0475084cd0&pkey=166757061", // 17 man mast
+  "https://pl.pornhub.com/view_video.php?viewkey=ph5d93ce9f4ee39&pkey=166757061", // 18 deep lush mfm
+
+
   
   // fill out or leave as null for days without a link
 ];
